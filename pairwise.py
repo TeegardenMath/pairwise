@@ -757,7 +757,7 @@ def displayElementsRight(type):
                 master=scrollableF,
                 text=element,
                 value=element,
-                variable=elementLeft
+                variable=elementRight
             )
             r.pack(fill='x', padx=5, pady=5)
     for element in elementList:
