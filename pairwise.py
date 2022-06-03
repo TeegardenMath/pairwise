@@ -262,12 +262,12 @@ bucketList=[
 
 reactDict={
     'amino acid':{
-        'hydrothermal vent':[0,['primordial soup'],""],
+        'hydrothermal vent':[0,['primordial soup'],"the entree wasn't tender enough to be a paving stone, and the gravy couldn't have been primordial soup because morphogenesis was already taking place - clive james"],
         'ocean':[0,['plankton'],""],
         'amino acid':[0,['microbe'],""]
     },
     'ball':{
-        'ball':[0,['testicles'],""],
+        'ball':[0,['testicles'],"the composition of a tragedy requires testicles - voltaire"],
         'beach':[0,['beach ball'],"beach balls at festivals are the work of the devil - gerard way"],
         'crater':[0,['golf ball'],""],
         'fire':[0,['fireball'],""],
@@ -663,7 +663,6 @@ def loadGame():
     loadSaveButton.pack(fill=tk.BOTH, side=tk.TOP, expand=True)
     saveDisplay.delete("1.0","end")
     saveDisplay.pack(fill=tk.BOTH, side=tk.BOTTOM, expand=True)
-    saveFile = "fire6electricity68rock6water6sand6glass68ball68888888888crystal ball688888"
 
 
 def drawA():
@@ -755,7 +754,7 @@ def displayElementsRight(type):
     for element in elementList:
         if typeDictionary[element][1]==1:
             r = ttk.Radiobutton(
-                master=scrollableE,
+                master=scrollableF,
                 text=element,
                 value=element,
                 variable=elementLeft
@@ -763,7 +762,7 @@ def displayElementsRight(type):
             r.pack(fill='x', padx=5, pady=5)
     for element in elementList:
         if typeDictionary[element][1]==0:
-            r=tk.Label(master=scrollableE,text=element)
+            r=tk.Label(master=scrollableF,text=element)
             r.pack(fill='x',padx=5,pady=5)
 
 def displayElementsVanity():
