@@ -209,7 +209,7 @@ typeDictionary={
     'water':['stuff',1],
     'water balloon':['vanity',0],
     'wave':['shape',0],
-    'wolf':['animal',0]
+    'wolf':['animal',0],  
 }
 
 bucketDictionary={
@@ -812,17 +812,34 @@ def elReact(elA,elB):
         reactionLog.set(logText)
         clearE()
         clearF()
+        checkMatches(elA)
+        checkMatches(elB)
     else:
         print(elA, " and ", elB, " did not react")
 
+def checkMetaMatches(el):
+    if el in bucketList:
+        return False
+    if el in bucketDictionary:
+        adjectiveList = bucketDictionary[el]
+        for adjective in adjectiveList:
+            if adjective in reactDict:
+                for elB in reactDict[adjective]:
+                    if reactDict[adjective][elB][0] == 0:
+                        return True
+    return False
 
 def hasMatches(el):
-    if el not in reactDict:
-        return False
-    for elB in reactDict[el]:
-        if reactDict[el][elB][0] == 0:
-            return True
-    return False
+    if (el not in reactDict) and (el not in bucketList):
+        return checkMetaMatches(el) 
+    else:
+        for elB in reactDict[el]:
+            if reactDict[el][elB][0] == 0:
+                return True
+        if el not in bucketList:
+            return checkMetaMatches(el)
+        else:
+            return False
     
 def checkMatches(el):
     if hasMatches(el):
@@ -843,8 +860,6 @@ def doReact(elA,elB):
     if canReact == 1:
         output = reactDict[elA][elB][1]
         reactDict[elA][elB][0]=1
-        checkMatches(elA)
-        checkMatches(elB)
         conjunctioncounter = 0
         logAppendix = ""
         for element in output:
