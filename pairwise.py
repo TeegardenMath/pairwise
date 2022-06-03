@@ -825,9 +825,11 @@ def hasMatches(el):
     
 def checkMatches(el):
     if hasMatches(el):
-        typeDictionary[el][1]=1
+        if el in typeDictionary:
+            typeDictionary[el][1]=1
     else:
-        typeDictionary[el][1]=0
+        if el in typeDictionary:
+            typeDictionary[el][1]=0
         
 
 def doReact(elA,elB):
