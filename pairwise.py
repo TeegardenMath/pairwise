@@ -644,7 +644,8 @@ def loadSave():
     for type in elementDictionary:
         splitTwo=splitOne[typeNum].split('6')
         splitTwo.pop()
-        elementDictionary[type]=splitTwo
+        for element in splitTwo:
+            addEl(element)
         if len(splitTwo) > 0:
             buttonsShown[type]=1
         typeNum=typeNum+1
