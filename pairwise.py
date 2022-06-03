@@ -575,6 +575,7 @@ def clearF():
     # destroy all widgets from frame
     for widget in scrollableF.winfo_children():
        widget.destroy()
+    canvasF.yview_moveto('0')
 
 def clearA():
     # destroy all widgets from frame
@@ -855,14 +856,14 @@ def doReact(elA,elB):
         if len(reactDict[elA][elB]) > 2:
             isCaption=1
             captionLog.set(reactDict[elA][elB][2])
-    clearG()
-    #reaction log
-    logLabel = tk.Label(master=scrollableG, textvariable=reactionLog)
-    logLabel.pack()
-    if isCaption > 0:
-        captionLabel = tk.Message(master=scrollableG, textvariable=captionLog,font=("TkDefaultFont",12,"italic"))
-        captionLabel.pack()
     if canReact==1:
+        clearG()
+        #reaction log
+        logLabel = tk.Label(master=scrollableG, textvariable=reactionLog)
+        logLabel.pack()
+        if isCaption > 0:
+            captionLabel = tk.Message(master=scrollableG, textvariable=captionLog,font=("TkDefaultFont",12,"italic"))
+            captionLabel.pack()
         return 1
     else:
         return 0
